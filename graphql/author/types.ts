@@ -1,14 +1,14 @@
 import { gql } from 'apollo-server';
 
 const authorTypes = gql`
-  type Author {
+  type Author @key(fields: "id") {
     id: ID!
     user: String
     posts: [Post]
     comments: [Comment]
   }
 
-  type Query {
+  extend type Query {
     authors: [Author]
   }
 `;
